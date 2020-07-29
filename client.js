@@ -12,7 +12,28 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Successfully connected to game server!');
     conn.write('Name: T7K'); //writing data to a connection
+    //conn.write('Move: up'); //
+    setInterval(() => {
+      conn.write('Move: right');
+    }, 50);
+    /* setTimeout(() => {
+      conn.write('Move: right');
+    }, 50);
+    setTimeout(() => {
+      conn.write('Move: up');
+    }, 100);
+    setTimeout(() => {
+      conn.write('Move: up');
+    }, 150); */
   });
+  
+  conn.on('connect', () => {
+  
+  });
+ /*  conn.on('connect', () => {
+    conn.write('Move: right'); //
+
+  }); */
 
   //handling data
   conn.on('data', (data) => {
