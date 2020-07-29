@@ -10,14 +10,24 @@ const setupInput = function(conn) {
   const handleUserInput = stdin.on('data', (data) => { //handleUserInput 
     if (data === '\u0003') {
       process.exit();
-    } else if (data === 'w') {
+    } 
+    if (data === 'w') {
       conn.write('Move: up');
-    } else if (data === 'a') {
+    } 
+    if (data === 'a') {
       conn.write('Move: left');
-    } else if (data === 's') {
+    } 
+    if (data === 's') {
       conn.write('Move: down');
-    } else if (data === 'd') {
+    } 
+    if (data === 'd') {
       conn.write('Move: right');
+    }
+    if (data === 'q') {
+      conn.write('Say: python ftw!');
+    }
+    if (data === 'e') {
+      conn.write("Say: you zig, I'll zag");
     }
     
   });
