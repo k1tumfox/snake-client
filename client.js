@@ -16,15 +16,7 @@ const connect = function() {
     setInterval(() => {
       conn.write('Move: right');
     }, 50);
-    /* setTimeout(() => {
-      conn.write('Move: right');
-    }, 50);
-    setTimeout(() => {
-      conn.write('Move: up');
-    }, 100);
-    setTimeout(() => {
-      conn.write('Move: up');
-    }, 150); */
+   
   });
   
   conn.on('connect', () => {
@@ -40,9 +32,6 @@ const connect = function() {
     console.log('Server says: ', data);
   });
   //handing kick from server?...
-  
-
-
   
   return conn;
 }
