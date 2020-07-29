@@ -13,9 +13,9 @@ const connect = function() {
     console.log('Successfully connected to game server!');
     conn.write('Name: T7K'); //writing data to a connection
     //conn.write('Move: up'); //
-    setInterval(() => {
+    /* setInterval(() => {
       conn.write('Move: right');
-    }, 50);
+    }, 50); */
    
   });
   

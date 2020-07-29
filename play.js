@@ -2,8 +2,10 @@
 const { connect } = require('./client');
 const { setupInput } = require('./input');
 console.log('Connecting ...');
-connect();
-setupInput();
+
+const conn = connect();
+setupInput(conn); //update to send connection object returned from connect() into 
+//setupInput() function
 
 /**
  * Setup User Interface 
