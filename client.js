@@ -1,6 +1,7 @@
 const net = require('net');
 const { IP, PORT } = require('./constants');
 
+//connects with the game server
 const connect = function() {
   const conn = net.createConnection({ 
     host: IP,
@@ -9,26 +10,12 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
   
-  //connect event
+  //connect event handler
   conn.on('connect', () => {
     console.log('Successfully connected to game server!');
     conn.write('Name: T7K'); //writing data to a connection
-    //conn.write('Move: up'); //
-    /* setInterval(() => {
-      conn.write('Move: right');
-    }, 50); */
-   
   });
-  
-  conn.on('connect', () => {
-  
-  });
- /*  conn.on('connect', () => {
-    conn.write('Move: right'); //
-
-  }); */
-
-  //handling data
+  //handling data from server, eg kick from server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
@@ -36,5 +23,5 @@ const connect = function() {
   
   return conn;
 }
-
-module.exports = { connect };
+module.exports = { connect }; //ES6 object shorthand exports
+                  //object containing our connect function

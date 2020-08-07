@@ -1,14 +1,15 @@
 let connection; //stores the active TCP connection object
 
+//handle user input via stdin
 const setupInput = function(conn) {
-  connection = conn;
+  connection = conn; //I don't think I need this?
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
 
   const handleUserInput = stdin.on('data', (data) => { //handleUserInput 
-    if (data === '\u0003') {
+    if (data === '\u0003') { //ctrl + c to exit 
       process.exit();
     } 
     if (data === 'w') {
@@ -29,10 +30,7 @@ const setupInput = function(conn) {
     if (data === 'e') {
       conn.write("Say: you zig, I'll zag");
     }
-    
   });
-
   return stdin;
 }
 module.exports = { setupInput };
-
